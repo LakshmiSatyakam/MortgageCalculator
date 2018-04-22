@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    @model MortgageCalculator.Web.Models.MortgageM
+}
+
+<div class="jumbotron">
+    <h1>Mortgage Calculator</h1>
+    <p class="lead">
+        The Mortgage Calculator helps you:
+        <ul>
+            <li>Choose the right loan for you</li>
+            <li>The Interests and Repayment on your loan</li>
+        </ul>
+    </p>
+</div>
+
+<div class="row">
+    <div><h2>Mortgage Details:</h2><br /><br /></div>
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>Mortgage Id </th>
+            <th>Name </th>
+            <th>Mortgage Type </th>
+            <th>Interest Repayment </th>
+            <th>Interest Rate </th>
+            <th>Effective Start Date </th>
+            <th>Effective End Date </th>
+            <th>Terms In Months</th>
+            <th>Cancellation Fee</th>
+            <th>Establishment Fee</th>
+            <th>Schema Identifier</th>
+        </tr>
+        @foreach (var d in TempData["MortgageDetails"]
+                                    as List<MortgageCalculator.Dto.Mortgage>)
+        {
+            <tr>
+                <td>@d.MortgageId</td>
+                <td>@d.Name</td>
+                <td>@d.MortgageType</td>
+                <td>@d.InterestRepayment</td>
+                <td>@d.InterestRate</td>
+                <td>@d.EffectiveStartDate</td>
+                <td>@d.EffectiveEndDate</td>
+                <td>@d.TermsInMonths</td>
+                <td>@d.CancellationFee</td>
+                <td>@d.EstablishmentFee</td>
+                <td>@d.SchemaIdentifier</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="/Home/CalculateMortgage" method="post">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Calculator</legend>
+
+                @Html.ValidationSummary(true)
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Loan Amount</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(i => i.LoanAmount, new { @type = "number" })
+                        @Html.ValidationMessageFor(i => i.LoanAmount)
+                        <span class="help-block">Enter the loan amount</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Loan Duration</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(i => i.Duration, new { @type = "number" })
+                        @Html.ValidationMessageFor(i => i.Duration)
+                        <span class="help-block">Enter the duration in years</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Mortgage Type</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(i => i.InterestRate, Model.MortgageTypes)
+                        <span class="help-block">Select the mortgage type</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input type="submit" id="calculate" value="Calculate" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+@*<div>
+    @Html.Partial("_PartialLoanDetails", TempData["LoanDetailsM"]);
+</div>*@

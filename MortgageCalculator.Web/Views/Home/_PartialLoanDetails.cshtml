@@ -1,0 +1,39 @@
+﻿@{
+    @model MortgageCalculator.Web.Models.LoanDetailsM
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="jumbotron">
+    <h1>Mortgage Summary</h1>
+</div>
+
+<div>
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <td>Loan Amount </td>
+            <td>@Model.LoanAmount.ToString("C") </td>
+        </tr>
+        <tr>
+            <td>Interest Rate</td>
+            <td>@Model.InterestRate% annual</td>
+        </tr>
+        <tr>
+            <td>Duration</td>
+            <td>@Model.Duration years</td>
+        </tr>
+        <tr>
+            <td>Total Interest</td>
+            <td>@Model.TotalInterest.ToString("C")</td>
+        </tr>
+        <tr>
+            <td>Total Repayment</td>
+            <td>@Model.TotalLoan.ToString("C")</td>
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,6 @@
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\bin\Release\MortgageCalculator.Dto.dll
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\bin\Release\MortgageCalculator.Dto.pdb
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\obj\Release\MortgageCalculator.Dto.csproj.CoreCompileInputs.cache
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\obj\Release\MortgageCalculator.Dto.dll
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\obj\Release\MortgageCalculator.Dto.pdb
+C:\Users\Nentru\Downloads\MortgageCalculator\MortgageCalculator.Dto\obj\Release\MortgageCalculator.Dto.csprojResolveAssemblyReference.cache
